@@ -14,7 +14,9 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Connect to MongoDB
-mongoose.connect("mongodb+srv://2E9Qci1zFwdZtIqa:2E9Qci1zFwdZtIqa@cluster0.3vqdhfr.mongodb.net/yacoobaa?retryWrites=true&w=majority&appName=Cluster0").then(() => {
+// 
+// mongodb+srv://2E9Qci1zFwdZtIqa:2E9Qci1zFwdZtIqa@cluster0.3vqdhfr.mongodb.net/yacoobaa?retryWrites=true&w=majority&appName=Cluster0
+mongoose.connect("mongodb://localhost:27017").then(() => {
   console.log('Connected to MongoDB');
 }).catch(err => {
   console.error('Failed to connect to MongoDB', err);

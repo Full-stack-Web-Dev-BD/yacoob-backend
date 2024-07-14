@@ -10,7 +10,15 @@ router.use(bodyParser.json());
 
 // Route: POST /api/subscribe
 // Description: Subscribe a new email
-router.post('/', async (req, res) => {
+router.get('/', async (req, res) => {
+    try {
+        const users = await Subscription.find(); // Exclude password field
+        res.json(users);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+  });router.post('/', async (req, res) => {
     const { email } = req.body;
 
     try {
